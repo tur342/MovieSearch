@@ -1,3 +1,34 @@
 <template>
-    <div>Movie List..</div>
+    <v-row>
+        <v-col
+            v-for="movie in movies"
+            :key="movie.imdbID"
+            cols="12"
+            lg="3"
+            md="3"
+            sm="6">
+            <v-card>
+                <v-img
+                :src="movie.Poster"
+                :alt="movie.Title"></v-img>
+                <v-card-Title>
+                    {{movie.Title}}
+                </v-card-Title>
+                <v-card-subtitle>
+                    {{movie.Year}}
+                </v-card-subtitle>
+            </v-card>
+        </v-col>
+    </v-row>
 </template>
+
+<script>
+export default {
+    computed: {
+        movies () {
+            return this.$store.state.movie.movies
+        }
+    }
+}
+
+</script>
