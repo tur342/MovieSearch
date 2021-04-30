@@ -1,8 +1,12 @@
 <template>
-    <v-row>
+    <v-row
+        v-masonry
+        item-selector=".item">
         <v-col
             v-for="movie in movies"
             :key="movie.imdbID"
+            v-masonry-tile
+            class="item"
             cols="12"
             lg="3"
             md="3"
@@ -10,7 +14,8 @@
             <v-card>
                 <v-img
                 :src="movie.Poster"
-                :alt="movie.Title"></v-img>
+                :alt="movie.Title"
+                height="300"></v-img>
                 <v-card-Title>
                     {{movie.Title}}
                 </v-card-Title>
@@ -30,5 +35,4 @@ export default {
         }
     }
 }
-
 </script>
